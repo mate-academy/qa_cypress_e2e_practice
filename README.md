@@ -35,4 +35,9 @@ Go to `e2e` folder and cover listed functionality with e2e tests:
 
 ### Advanced level
 
-1. Use [PageObject pattern](https://medium.com/reactbrasil/deep-diving-pageobject-pattern-and-using-it-with-cypress-e60b9d7d0d91) for your tests.
+1. Use PageObject pattern for your tests. Resources:
+   - [Deep diving PageObject pattern and using it with Cypress](https://medium.com/reactbrasil/deep-diving-pageobject-pattern-and-using-it-with-cypress-e60b9d7d0d91);
+   - [Cypress Page Object Model](https://medium.com/nerd-for-tech/cypress-page-object-model-953791736972);
+   - [Using Page Objects in Cypress](https://dev.to/leading-edje/using-page-objects-in-cypress-co9);
+   - [What is Cypress Page Object Model?](https://www.browserstack.com/guide/cypress-page-object-model);
+   - [CYPRESS Page Object Model EXAMPLE](https://www.youtube.com/watch?v=bC9bGHDgpQk).
