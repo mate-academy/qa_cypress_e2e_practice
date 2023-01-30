@@ -1,4 +1,57 @@
-# Login to Postgres Container
+# App Setup
+
+- [App Setup](#app-setup)
+  - [How to Run](#how-to-run)
+  - [Run with `make` commands](#run-with-make-commands)
+  - [Frontend login](#frontend-login)
+  - [Connect to Database](#connect-to-database)
+
+## How to Run
+
+1. x86 chips
+
+    ```bash
+      sudo docker-compose build && sudo docker-compose up
+    ```
+
+    If case of `"docker-compose" command not found`, use this command
+
+    ```bash
+      sudo docker compose build && sudo docker compose up
+    ```
+
+1. Apple silicon chips (M1, M2)
+
+    ```bash
+      docker-compose -f docker-compose.m1.yml build && docker-compose -f docker-compose.m1.yml up
+    ```
+
+Navigate to [http://localhost:1667](http://localhost:1667)
+
+## Run with `make` commands
+
+Also, you can run the project with `Makefile` ([Unbuntu](https://www.unixmen.com/install-ubuntu-make-on-ubuntu-15-04/)), ([Windows](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows), for Mac available by default) commands:
+
+```bash
+  make up  // for x86
+  make m1  // for M1
+```
+
+## Frontend login
+
+There are a total of 100 users, with each user having the same password. Say we
+want to login as user 32:
+
+```text
+Username: user32
+Password: Userpass1
+Email: user32@hotmail.com
+```
+
+## Connect to Database
+
+In you need an access to the DB, you can connect to the Postgress container.
+The easy way:
 
 ```shell script
 $ sudo docker exec -it realworld_postgres bash
@@ -7,7 +60,7 @@ $ psql -U user
 # select * from users;
 ```
 
-Or:
+The advanced way:
 
 1. Ubuntu setup:
 
@@ -32,12 +85,3 @@ Or:
    password: userpassword
    # select * from users;
    ```
-
-## Problems in Vue
-
-### `article.tags` returns as `["""]`
-
-When sent down from the server, the `article.tags` property is `""`. But when
-vue gets it from the `axios` response, the property is `[""]`. This seems to be
-a problem with vue, and to combat it, we have added the following checks into
-the tag components: `v-if="tags.length !== 1 && !!tags[0]"`.
